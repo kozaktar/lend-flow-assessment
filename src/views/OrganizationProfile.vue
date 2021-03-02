@@ -1,23 +1,35 @@
 <template>
     <div>
-
+        {{userId}}
     </div>
 </template>
 
 <script>
-import { reactive, toRefs } from '@vue/composition-api'
+// import { useStore } from "vuex";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
 export default {
-    setup () {
-        const state = reactive({
-            count: 0,
-        })
+  name: "StudentProfile",
+
+  components: {
+
+  },
+
+  setup() {
+    // const store = useStore();
+    const route = useRoute();
+    const userId = computed(() => route.params.studentId);
+    // const student = computed(() => store.getters["Students/studentById"](userId.value));
     
-        return {
-            ...toRefs(state),
-        }
-    }
-}
+
+
+
+    return {
+      userId
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
