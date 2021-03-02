@@ -7,7 +7,7 @@
         class="object-contain h-10 rounded-full ring-1 ring-gray-300 mr-3 mt-2"
       />
       <div id="orgInfo" class="text-left">
-        <router-link to="/"
+        <router-link :to="route"
           ><h1 class="text-md font-bold text-blue-500">{{ organization.login }}</h1></router-link
         >
         <p>{{ organization.description }}</p>
@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import {computed} from 'vue';
 
 export default {
   name: "orgdisplay",
@@ -27,10 +28,12 @@ export default {
     },
   },
 
-  setup() {
+  setup(props) {
+
+      const route = computed(()=>`/org/${props.organization.id}/details`)
 
     return {
-     
+        route
     };
   },
 };

@@ -6,7 +6,6 @@ import axios from "axios";
 export default createStore({
   state: {
     gitOrgs: null,
-    displayedOrg: null,
     apiError:null,
     loading:true,
     pagination:null
@@ -16,15 +15,15 @@ export default createStore({
     allOrgs: (state) => {
       return state.gitOrgs;
     },
-    displayedOrg: (state) => (id) => {
-      const student = state.students.find((student) => student.id === id);
-      return student;
-    },
     apiError: (state) => {
       return state.apiError;
     },
     loading: (state) => {
       return state.loading;
+    },
+    orgById: (state) =>(id)=> {
+      const org=state.gitOrgs.find(org=>org.id===id);
+      return org;
     },
   },
 
@@ -53,9 +52,6 @@ export default createStore({
         )
         .then((response) => {
           // JSON responses are automatically parsed.
-          console.log(response)
-          const links=response.headers.link.split(";")
-          console.log(links[0].substring(1, links[0].length-1))
           commit("SET_PAGINATION", response.headers.link.split(";"))
           commit("SET_ORGANIZATIONS", response.data);
           commit("SET_LOADING", false);

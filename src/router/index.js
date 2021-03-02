@@ -9,7 +9,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/org/:id/profile', 
+    path: '/org/:id/details', 
     component: OrgProfile,
     name: 'Profile'
     // children: [
