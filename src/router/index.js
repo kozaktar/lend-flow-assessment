@@ -9,7 +9,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/org/:id', 
+    path: '/org/:id/details', 
     component: OrgProfile,
     name: 'Profile'
   }
