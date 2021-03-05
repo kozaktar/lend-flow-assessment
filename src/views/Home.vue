@@ -31,17 +31,10 @@ export default {
 
     const query = ref("");
 
-    // const searchRes = computed(() => {
-    //   //   if (query.value.length > 0)
-    //   return gitOrgs.value.filter((org) =>
-        
-    //       org.login.toLowerCase().includes(query.value.toLowerCase())
-    //   );
-    // });
+  
     return {
       gitOrgs,
       query,
-      // searchRes,
       loading
     };
   },

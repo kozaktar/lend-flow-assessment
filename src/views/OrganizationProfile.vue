@@ -20,14 +20,10 @@ export default {
     const store = useStore();
     const route = useRoute();
     const orgId = computed(() => route.params.id);
-    const org = computed(() => store.getters["orgById"](orgId.value));
+    const org = computed(()=> store.getters.orgById(orgId.value))
     
-
-
-
     return {
-      orgId,
-      org
+      org,
     };
   },
 };

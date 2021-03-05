@@ -9,24 +9,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/org/:id/details', 
+    path: '/org/:id', 
     component: OrgProfile,
     name: 'Profile'
-    // children: [
-    //   {
-    //     // UserProfile will be rendered inside User's <router-view>
-    //     // when /user/:id/profile is matched
-    //     path: 'details',
-    //     component: OrgProfile
-    //   },
-    //   {
-    //     // UserPosts will be rendered inside User's <router-view>
-    //     // when /user/:id/posts is matched
-    //     path: 'posts',
-    //     component: UserPosts
-    //   }
-    // ]
-
   }
 ]
 

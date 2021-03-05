@@ -30,7 +30,7 @@ export default {
 
   setup(props) {
 
-      const route = computed(()=>`/org/${props.organization.id}/details`)
+      const route = computed(()=>`/org/${props.organization.id}`)
 
     return {
         route

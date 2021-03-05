@@ -22,8 +22,9 @@ export default createStore({
       return state.loading;
     },
     orgById: (state) =>(id)=> {
-      const org=state.gitOrgs.find(org=>org.id===id);
-      return org;
+      console.log('id', id)
+      return state.gitOrgs.find(org => org.id == id);
+
     },
   },
 
@@ -54,6 +55,7 @@ export default createStore({
           // JSON responses are automatically parsed.
           commit("SET_PAGINATION", response.headers.link.split(";"))
           commit("SET_ORGANIZATIONS", response.data);
+          console.log(response.data)
           commit("SET_LOADING", false);
         })
         .catch((e) => {
